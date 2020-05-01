@@ -142,7 +142,7 @@
         }
         
         button {
-            width: 100%;
+            width: 60%;
             padding: 10px 0;
             margin: 10px auto;
             border-radius: 5px;
@@ -154,7 +154,12 @@
         }
         
         button:hover {
-            background: #26a9e0;
+            background: rgb(45, 180, 85);
+        }
+        textarea {
+          resize: none;
+          border-radius: 5px;
+          margin-top: 20px;
         }
     </style>
 </head>
@@ -194,12 +199,13 @@
             <label for="radioTwo" class="radio">Company</label>
             <input type="radio" value="none" id="radioThree" name="account" />
             <label for="radioThree" class="radio">Others</label>
-            <input type="text" name="reason" id="name" placeholder="Specify" required/>
+            <textarea name="reason" id="name" placeholder="Mention the Reason" cols="60" rows="5" class="text-area1" required></textarea>
             <div class="btn-block">
-                <input type="submit" name="Submit" value="Submit">
+                <button type="button" name="Submit" class="btn btn-success btn-sm" >Submit</button>
             </div>
         </form>
     </div>
+    <script>$('textarea').autoResize();</script>
 </body>
 
 </html>
