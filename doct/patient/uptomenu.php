@@ -12,7 +12,6 @@
 				<li><a href="search_doctor.php">Search Doctors </a></li>
 				<li><a href="view_booking.php">View Appoinment</a></li>
 				<li><a href="changepwd.php">Change Password</a></li>
-				<li><a href="feedback.php">Feedback</a></li>
 				<li><a href="logout.php">Log Out</a></li>
 			</ul>
 		</nav>

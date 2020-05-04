@@ -16,7 +16,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `doctor`
+-- Database: `doct`
 --
 
 -- --------------------------------------------------------
@@ -43,8 +43,8 @@ INSERT INTO `category` (`id`, `cat`) VALUES
 (5, 'Cardiologist'),
 (6, 'Plastic Surgeon'),
 (7, 'General Physician'),
-(8, 'Neurologist');
-
+(8, 'Neurologist'),
+(9, 'Fertility doctor');
 -- --------------------------------------------------------
 
 --
@@ -53,7 +53,6 @@ INSERT INTO `category` (`id`, `cat`) VALUES
 
 CREATE TABLE IF NOT EXISTS `doctor` (
   `doc_id` int(22) NOT NULL AUTO_INCREMENT,
-  `doctor_id` varchar(22) NOT NULL,
   `name` varchar(22) NOT NULL,
   `address` varchar(100) NOT NULL,
   `contact` varchar(14) NOT NULL,
@@ -63,7 +62,6 @@ CREATE TABLE IF NOT EXISTS `doctor` (
   `fee` varchar(111) NOT NULL,
   `userid` varchar(22) NOT NULL,
   `password` varchar(22) NOT NULL,
-  `pic` varchar(111) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
   PRIMARY KEY (`doc_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
@@ -71,21 +69,18 @@ CREATE TABLE IF NOT EXISTS `doctor` (
 -- Dumping data for table `doctor`
 --
 
-INSERT INTO `doctor` (`doc_id`, `doctor_id`, `name`, `address`, `contact`, `email`, `expertise`, `id`, `fee`, `userid`, `password`, `pic`) VALUES
-(1, '2', 'Dr. Abdul Kader', 'Dinajpur', '01734761999', 'kader@gmail.com', 'Heart', 2, '500', '1001', '123', 'doctor1.jpg'),
-(2, '1', 'Dr. Azharul Islam', 'Dinajpur', '01764761919', 'azad.ece13@gmail.com', 'Medicine', 1, '500', '1002', '123', 'doctor5.jpg'),
-(3, '1', 'Dr. Rashid', 'Rangpur', '01521670654', 'rashid@gmail.com', 'Medicine', 1, '600', '1003', '123', 'doctor1.jpg'),
-(4, '4', 'Dr. Badol Miah', 'Dhaka', '01949389983', 'badol@gmail.com', 'Kedney', 4, '700', '1004', '123', 'doctor5.jpg'),
-(5, '5', 'Dr. Nur Mohammad', 'Dhaka', '01674546856', 'nur@gmail.com', 'Cardiologist', 5, '700', '1005', '123', 'itsme.jpg'),
-(6, '1', 'Dr. Majedul Islam', 'Dhaka', '01734761999', 'majedul@gmail.com', 'Medicine', 1, '800', '1006', '123', 'itzme.jpg'),
-(7, '8', 'Dr. Rafiq Ahmed', 'Rajsahi', '01674546563', 'rafiq@gmail.com', 'Neurologist', 8, '600', '1007', '123', 'doctor5.jpg'),
-(8, '3', 'Dr. Sajedul Islam', 'Rangpur', '01521768936', 'sajedul@gmail.com', 'Bone', 3, '700', '1008', '123', 'doctor1.jpg'),
-(9, '6', 'Dr. Abul Kalam', 'Pabna', '+8801976564536', 'abulkalam@gmail.com', 'Plastic Surgeon', 6, '500', '1009', '123', 'doctor5.jpg'),
-(11, '11', 'Md. Azharul Islam', 'Dhaka', '01764761919', 'azad.ece13@gmail.com', 'Neurologist', 0, '800', '1012', '123', 'doctor1.jpg'),
-(12, '11', 'Azharul Islam', 'Dhaka', '01764761919', 'azad.ece13@gmail.com', 'Heart', 0, '800', '1011', '123', 'doctor5.jpg'),
-(14, '', 'Md. Azharul Islam', 'Dhaka', '01521470368', 'azad@gmail.com', 'Bone', 0, '800', '1016', '123', 'itsme.jpg'),
-(16, '', 'Dr. Azad', 'Rangpur', '01521470368', 'azad@gmail.com', 'General Physician', 0, '1005', '1013', '123', ''),
-(17, '', 'Md. Azharul Islam', 'Rangpur', '01764761919', 'hasan@gmail.com', 'Neurologist', 0, '600', '1015', '123', 'header3.jpg');
+INSERT INTO `doctor` (`doc_id`, `name`, `address`, `contact`, `email`, `expertise`, `id`, `fee`, `userid`, `password`) VALUES
+(1, 'Dr. Abdul Kader', 'Dinajpur', '01734761999', 'kader@gmail.com', 'Heart', 2, '500', '1001', '123'),
+(2, 'Dr. Azharul Islam', 'Dinajpur', '01764761919', 'azad.ece13@gmail.com', 'Medicine', 1, '500', '1002', '123'),
+(3, 'Dr. Rashid', 'Rangpur', '01521670654', 'rashid@gmail.com', 'Medicine', 1, '600', '1003', '123'),
+(4, 'Dr. Badol Miah', 'Dhaka', '01949389983', 'badol@gmail.com', 'Kedney', 4, '700', '1004', '123'),
+(5, 'Dr. Nur Mohammad', 'Dhaka', '01674546856', 'nur@gmail.com', 'Cardiologist', 5, '700', '1005', '123'),
+(6, 'Dr. Majedul Islam', 'Dhaka', '01734761999', 'majedul@gmail.com', 'Medicine', 1, '800', '1006', '123'),
+(7, 'Dr. Rafiq Ahmed', 'Rajsahi', '01674546563', 'rafiq@gmail.com', 'Neurologist', 8, '600', '1007', '123'),
+(8, 'Dr. Sajedul Islam', 'Rangpur', '01521768936', 'sajedul@gmail.com', 'Bone', 3, '700', '1008', '123'),
+(9, 'Dr. Abul Kalam', 'Pabna', '+8801976564536', 'abulkalam@gmail.com', 'Plastic Surgeon', 6, '500', '1009', '123'),
+(10, 'Md. Azharul Islam', 'Dhaka', '01764761919', 'azad.ece13@gmail.com', 'Fertility doctor', 0, '800', '1012', '123');
+
 
 -- --------------------------------------------------------
 
@@ -117,4 +112,37 @@ INSERT INTO `patient` (`id`, `name`, `age`, `contact`, `address`, `bgroup`, `ema
 (6, 'developerazad', '22', '01521470368', 'Dhaka', 'AB+', 'developerazad.hstu@gmail.com', '1234');
 
 -- --------------------------------------------------------
+
+
+--
+-- Table structure for table `patient`
+--
+CREATE TABLE IF NOT EXISTS `booking`
+(
+  `booking_id` int
+(22) NOT NULL AUTO_INCREMENT,
+  `dname` varchar
+(22) NOT NULL,
+  `userid` int
+(22) NOT NULL,
+  `dcontact` varchar
+(22) NOT NULL,
+  `expertise` varchar
+(22) NOT NULL,
+  `fee` varchar
+(22) NOT NULL,
+  `pname` varchar
+(22) NOT NULL,
+  `pcontact` varchar
+(22) NOT NULL,
+  `email` varchar
+(111) NOT NULL,
+  `address` varchar
+(22) NOT NULL,
+  `dates` date NOT NULL,
+  `tyme` varchar
+(22) NOT NULL,
+  PRIMARY KEY
+(`booking_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 

@@ -32,7 +32,7 @@
 				<ul>
 					<li><a href="../index.php">Home</a></li>
 
-					<li><a href="logout.php">Logout</a></li>
+					<li><a href="../patient/logout.php">Logout</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -65,7 +65,7 @@
 					<?php
 					$_SESSION['doctor'] = "";
 
-					include('../config.php');
+					include('config.php');
 					if (isset($_POST["submit"])) {
 
 						$sql = "SELECT * FROM doctor WHERE userid= '" . $_POST["userid"] . "' AND password= '" . $_POST["password"] . "'";
@@ -76,7 +76,7 @@
 							$_SESSION["userid"] = $_POST["userid"];
 							// $_SESSION["type"]=$result[2];
 							$_SESSION['doctor'] = "yes";
-							echo "<script>location.replace('myDetails.php');</script>";
+							echo "<script>location.replace('dashboard.php');</script>";
 							// echo "u are supposed to redirect to ur profile";
 						} else {
 							echo "<span style='color:red;'>Invalid username or password</span>";

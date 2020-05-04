@@ -7,7 +7,7 @@
 
 <!-- for retriving data -->
 <?php
-include('../config.php');
+include('config.php');
 $sql = "SELECT * FROM patient where email='" . $_SESSION["email"] . "'";
 
 $q = mysqli_query($conn, $sql);
@@ -54,17 +54,9 @@ mysqli_close($conn);
 
 
 			<button name="submit" type="submit" style="margin-left:43px;width:108px;border-radius: 3px;">UpdateProfile</button> <br>
-
-
 		</form> <br>
 
 		<br>
-
-
-
-
-
-
 	</div>
 
 
@@ -76,8 +68,6 @@ mysqli_close($conn);
 <?php
 include('config.php');
 if (isset($_POST['submit'])) {
-
-
 	$sql = "UPDATE patient SET name='" . $_POST["name"] . "' ,age='" . $_POST["age"] . "' , contact='" . $_POST["contact"] . "',address='" . $_POST["address"] . "', email='" . $_POST["email"] . "' WHERE email='" . $_SESSION["email"] . "'";
 
 	if (mysqli_query($conn, $sql)) {

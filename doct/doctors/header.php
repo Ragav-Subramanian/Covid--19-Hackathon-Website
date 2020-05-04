@@ -13,20 +13,10 @@
 <body>
 
 
-<?php
-		if($_SESSION['adminstatus'] == ""){
-			header("location:doctorlogin.php");
-		}
-		
-		   
-
-	 ?>
-
-
 <div class="container-fluid">
 		<div class="header_top">
 			
-			<span style="font-size:50px;color:#2c2f84;font-weight:bolder;margin-left:15px;">Doctor Appoinment System</span>
+			<span style="font-size:50px;color:#4ADA75;font-weight:bolder;margin-left:15px;">Doctor Appoinment System</span>
 		</div>
 
 	<!-- 	this is for menu -->
@@ -35,7 +25,6 @@
 			<ul>
 				
 				<li><a href="myAppoinment.php">My Appoinment</a></li>
-				<li><a href="myCustomer.php">Customer Details</a></li>
 				<li><a href="myDetails.php">My Details</a></li>
 				<li><a href="../patient/logout.php">Logout</a></li>
 			</ul>

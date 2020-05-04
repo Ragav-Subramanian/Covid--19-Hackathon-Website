@@ -13,7 +13,7 @@
  ?>
 				<!-- fetching doctor info -->
 					<?php 
-					include('../config.php');
+					include('config.php');
 					
 
 							$sql="SELECT * FROM doctor WHERE doc_id = $doc_id ";
@@ -105,8 +105,8 @@
 						if(isset($_POST['submit'])){
 							
 
-						$sql = " INSERT INTO booking (dname,userid,dcontact,expertise,fee, pname,pcontact,email,address,dates,tyme,payment)
-							VALUES ('" . $_POST["dname"] . "','" . $_POST["userid"] . "','" . $_POST["dcontact"] . "','" . $_POST["expertise"] . "', '" . $_POST["fee"] . "','" . $_POST["pname"] . "','". $_POST["pcontact"] . "','". $_POST["email"] . "','". $_POST["address"] . "','". $_POST["dates"] . "','". $_POST["tyme"] . "','". $_POST["payment"] . "' )";
+						$sql = " INSERT INTO booking (dname,userid,dcontact,expertise,fee, pname,pcontact,email,address,dates,tyme)
+							VALUES ('" . $_POST["dname"] . "','" . $_POST["userid"] . "','" . $_POST["dcontact"] . "','" . $_POST["expertise"] . "', '" . $_POST["fee"] . "','" . $_POST["pname"] . "','". $_POST["pcontact"] . "','". $_POST["email"] . "','". $_POST["address"] . "','". $_POST["dates"] . "','". $_POST["tyme"] . "' )";
 
 							if ($conn->query($sql) === TRUE) {
 							    echo "<script>alert('Your booking has been accepted!');</script>";

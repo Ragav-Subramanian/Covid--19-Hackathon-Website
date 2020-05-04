@@ -20,7 +20,7 @@
 				<option>Heart</option>
 				<option>Bone</option>
 				<option>Neurologist</option>
-				<option>kedney</option>
+				<option>Fertility doctor</option>
 				<option>Cardiologist</option>
 				<option>Plastic Surgeon</option>
 				<option>General Physician</option>
