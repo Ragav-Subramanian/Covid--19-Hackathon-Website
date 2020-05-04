@@ -12,7 +12,7 @@
 <!-- result -->
 
 					<?php 
-					include('../config.php');
+					include('config.php');
 					
 
 					$sql = " SELECT * FROM doctor WHERE  expertise = '" . $_POST["expertise"]."' ";

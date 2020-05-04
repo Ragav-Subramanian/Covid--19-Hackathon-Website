@@ -52,30 +52,9 @@
 
 	?>
 </div>
-
-
-
-
-
-
 <?php include('../footer.php'); ?>
-
-
-
 </div><!--  containerFluid Ends -->
-
-
-
-
 <script src="js/bootstrap.min.js"></script>
-
-
-
-
-
-
-
-
 </body>
 
 </html>

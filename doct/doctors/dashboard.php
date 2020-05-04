@@ -1,8 +1,4 @@
-<?php if (!isset($_SESSION)) {
-	session_start();
-}
-?>
-
+<?php session_start();  ?>
 <?php include('header.php'); ?>
 
 
@@ -12,10 +8,10 @@
 
 <!-- this is for donor registraton -->
 <div class="dashboard" style="background-color:#4ADA75;">
-	<h3 class="text-center" style="background-color:#272327;color: #fff;padding: 5px;">Doctor Panel</h3>
+	<h3 class="text-center" style="background-color:#4AdA75;color: #fff;padding: 5px;">Doctor Panel</h3>
 
 
-	<span class="adminDashboard" style="font-size: 85px;font-weight: bold;color: blue;font-family: serif;margin-left: 180px;background-color: black;">Welcome To Doctor Panel</span>
+	<span class="adminDashboard" style="font-size: 85px;font-weight: bold;color: blue;font-family: serif;margin-left: 180px;background-color: #4ADA75;">Welcome To Doctor Panel</span>
 
 
 
@@ -24,7 +20,7 @@
 
 
 
-<?php include('../doctors/footer.php'); ?>
+
 
 
 
