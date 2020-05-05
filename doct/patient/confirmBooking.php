@@ -1,7 +1,7 @@
 				<!-- confirming booking -->
 					<?php
 
-						include('../config.php');
+						include('dbconnection_patient.php');
 						if(isset($_POST['submit'])){
 							
 

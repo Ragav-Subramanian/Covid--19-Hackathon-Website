@@ -128,14 +128,14 @@
 			<div class="btn-block">
 				<button type="submit" name="submit">submit</button>
 			</div>
-			<span style="color:#0000FF;">Not a member yet?</span> <a href="patient_regi.php" title="create a account" target="" style="color:#000;">&nbsp;Sign Up</a> <br>
+			<span style="color:#0000FF;">Not a member yet?</span> <a href="patient_registration.php" title="create a account" target="" style="color:#000;">&nbsp;Sign Up</a> <br>
 
 
 			<!-- login validation -->
 			<?php
 			$_SESSION['patient'] = "";
 
-			include('config.php');
+			include('patient_dbconnection.php');
 			if (isset($_POST["submit"])) {
 
 

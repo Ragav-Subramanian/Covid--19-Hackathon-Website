@@ -126,7 +126,7 @@
 			<?php
 			$_SESSION['doctor'] = "";
 
-			include('config.php');
+			include('dbconnection_doctor.php');
 			if (isset($_POST["submit"])) {
 
 				$sql = "SELECT * FROM doctor WHERE userid= '" . $_POST["userid"] . "' AND password= '" . $_POST["password"] . "'";

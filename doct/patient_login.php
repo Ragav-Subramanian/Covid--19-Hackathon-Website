@@ -135,7 +135,7 @@
 				<?php
 				$_SESSION['patient'] = "";
 
-				include('config.php');
+				include('patient_dbconnection.php');
 				if (isset($_POST["submit"])) {
 
 

@@ -4,7 +4,7 @@
 <html>
 
 <head>
-	<title>Simple registration form</title>
+	<title>Doctor registration form</title>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 	<style>
@@ -155,7 +155,7 @@
 			</div>
 		</form>
 		<?php
-		include('config.php');
+		include('dbconnection_doctor.php');
 		if (isset($_POST['submit'])) {
 			$sql = "INSERT INTO doctor (name,address,contact,email,expertise,id,fee,userid,password)
 		VALUES ('" . $_POST["name"] . "','" . $_POST["address"] . "','" . $_POST["contact"] . "','" . $_POST["email"] . "', '" . $_POST["expertise"] . "','" . $_POST["id"] . "','" . $_POST["fee"] . "','" . $_POST["userid"] . "' ,'" . $_POST["password"] . "' )";

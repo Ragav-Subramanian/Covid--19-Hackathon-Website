@@ -52,7 +52,7 @@
 </style>
 <ul>
 	<li><a href="home.php">Home</a></li>
-	<li><a href="signin.php">User Login</a>
+	<li><a href="Userlogin.php">User Login</a>
 </ul>
 </body>
 </html>

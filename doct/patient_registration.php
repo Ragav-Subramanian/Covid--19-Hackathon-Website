@@ -154,7 +154,7 @@
 
 
 		<?php
-		include('config.php');
+		include('patient_dbconnection.php');
 		if (isset($_POST['submit'])) {
 
 			$sql1 = "SELECT * FROM patient WHERE email='" . $_POST["email"] . "' ";
@@ -166,7 +166,7 @@
 							VALUES ('" . $_POST["name"] . "','" . $_POST["age"] . "','" . $_POST["contact"] . "','" . $_POST["address"] . "','" . $_POST["bgroup"] . "', '" . $_POST["email"] . "','" . $_POST["password"] . "' )";
 
 				if ($conn->query($sql) === TRUE) {
-					echo "<script>location.replace('patient_success_msg.php');</script>";
+					echo "<script>location.replace('patient_regis_success.php');</script>";
 				} else {
 					echo "<script>alert('There was an Error')<script>" . $sql . "<br>" . $conn->error;
 				}

@@ -16,7 +16,7 @@
 
 <div class="all_user" style="margin-top:0px; margin-left: 40px;">
 	<?php
-	include('config.php');
+	include('dbconnection_doctor');
 
 	$sql = " SELECT * FROM booking WHERE userid='" . $_SESSION["userid"] . "' AND  dname='" . $_SESSION["dname"] . "'" ;
 	$result = mysqli_query($conn, $sql);

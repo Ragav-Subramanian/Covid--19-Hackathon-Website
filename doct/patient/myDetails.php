@@ -7,7 +7,7 @@
 
 <!-- for retriving data -->
 <?php
-include('config.php');
+include('dbconnection_patient.php');
 $sql = "SELECT * FROM patient where email='" . $_SESSION["email"] . "'";
 
 $q = mysqli_query($conn, $sql);
@@ -66,7 +66,7 @@ mysqli_close($conn);
 <!-- update information -->
 
 <?php
-include('config.php');
+include('dbconnection_patient.php');
 if (isset($_POST['submit'])) {
 	$sql = "UPDATE patient SET name='" . $_POST["name"] . "' ,age='" . $_POST["age"] . "' , contact='" . $_POST["contact"] . "',address='" . $_POST["address"] . "', email='" . $_POST["email"] . "' WHERE email='" . $_SESSION["email"] . "'";
 

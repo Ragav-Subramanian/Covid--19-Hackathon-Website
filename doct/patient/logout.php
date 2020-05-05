@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>medical management system</title>
+	<title>Doctor appointment system</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
 </head>
@@ -15,11 +15,10 @@
 		$_SESSION["password"]="";
 
 		$_SESSION['userstatus']="";
-		      header("location:../signin.php");
+		      header("location:../Userlogin.php");
 
 	 ?>
- <?php include('footer.php'); ?>
-
+ 
 
 </body>
 </html>

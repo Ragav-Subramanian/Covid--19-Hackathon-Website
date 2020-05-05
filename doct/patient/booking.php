@@ -13,7 +13,7 @@
  ?>
 				<!-- fetching doctor info -->
 					<?php 
-					include('config.php');
+					include('dbconnection_patient.php');
 					
 
 							$sql="SELECT * FROM doctor WHERE doc_id = $doc_id ";
@@ -101,7 +101,7 @@
 			<!-- confirming booking -->
 					<?php
 
-						include('../config.php');
+						include('dbconnection_patient.php');
 						if(isset($_POST['submit'])){
 							
 
@@ -122,9 +122,7 @@
 
 	
 	
- <?php include('footer.php'); ?>
-
-
+ 
 	
 	</div><!--  containerFluid Ends -->
 

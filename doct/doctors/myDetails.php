@@ -4,7 +4,7 @@
 
 <!-- for retriving data -->
 <?php
-include('../config.php');
+include('dbconnection_doctor.php');
 $sql = "SELECT * FROM doctor where userid='" . $_SESSION["userid"] . "'";
 
 $q = mysqli_query($conn, $sql);
@@ -74,7 +74,7 @@ mysqli_close($conn);
 
 <?php
 
-include('config.php');
+include('dbconnection_doctor.php');
 if (isset($_POST['submit'])) {
 
 

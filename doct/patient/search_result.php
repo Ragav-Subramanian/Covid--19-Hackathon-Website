@@ -13,7 +13,7 @@
 <!-- result -->
 
 					<?php 
-					include('config.php');
+					include('dbconnection_patient.php');
 					
 
 					$sql = " SELECT * FROM doctor WHERE  expertise = '" . $_POST["expertise"]."' ";

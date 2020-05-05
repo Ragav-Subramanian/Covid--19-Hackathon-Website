@@ -14,7 +14,7 @@
 		
 			<div class="all_user" style="margin-top:0px; margin-left: 40px;">
 				<?php 
-					include('config.php');
+					include('dbconnection_patient.php');
 					
 
 					$sql = " SELECT * FROM booking WHERE email = '".$_SESSION["email"]."'  ";
