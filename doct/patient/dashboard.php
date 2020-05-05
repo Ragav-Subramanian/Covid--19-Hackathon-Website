@@ -18,15 +18,8 @@
 ?>
 	<?php include('uptomenu.php'); ?>
 <!-- this is for donor registraton -->
-	<div class="dashboard" style="background-color:#fff;">
-		<h3 class="text-center" style="background-color:#4ADA75;color: #fff;padding: 5px;">Welcome to Your Panel</h3>
-	</div>
 	
-<?php include('footer.php'); ?>
 
-
-	
-</div><!--  containerFluid Ends -->
 
 <script src="js/bootstrap.min.js"></script>
 

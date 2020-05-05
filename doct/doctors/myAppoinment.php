@@ -11,17 +11,14 @@
 
 
 <!-- this is for donor registraton -->
-<div class="dashboard" style="background-color:#fff;">
-	<h3 class="text-center" style="background-color:#4ADA75;color: #fff;padding: 5px;">Today's Appoinment</h3>
-
-
-</div>
+<br><br><br>
+	<h3 class="text-center" style="color: #0000FF;padding: 30px;">Today's Appoinment</h3>
 
 <div class="all_user" style="margin-top:0px; margin-left: 40px;">
 	<?php
-	include('../config.php');
+	include('config.php');
 
-	$sql = " SELECT * FROM booking WHERE userid='" . $_SESSION["userid"] . "'";
+	$sql = " SELECT * FROM booking WHERE userid='" . $_SESSION["userid"] . "' AND  dname='" . $_SESSION["dname"] . "'" ;
 	$result = mysqli_query($conn, $sql);
 	$count = mysqli_num_rows($result);
 
@@ -52,7 +49,6 @@
 
 	?>
 </div>
-<?php include('../footer.php'); ?>
 </div><!--  containerFluid Ends -->
 <script src="js/bootstrap.min.js"></script>
 </body>

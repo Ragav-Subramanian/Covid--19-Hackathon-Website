@@ -46,13 +46,13 @@
 	}
 
 	body {
-		background: url(stayhome.jpeg);
+		background: url(../stayhome.jpeg);
 		background-size: cover;
 	}
 </style>
 <ul>
-	<li><a href="home.php">Home</a></li>
-	<li><a href="signin.php">User Login</a>
+	<li><a href="../home.php">Home</a></li>
+	<li><a href="../signin.php">User Login</a>
 </ul>
 </body>
 </html>

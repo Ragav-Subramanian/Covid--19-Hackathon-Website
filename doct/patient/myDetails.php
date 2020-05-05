@@ -26,7 +26,7 @@ mysqli_close($conn);
 <!-- for retriving data -->
 
 <div class="login" style="background-color:#fff;">
-	<h3 class="text-center" style="background-color:#4ADA75;color: #fff;">My Details</h3>
+	
 	<div class="formstyle" style="float: right;padding:20px;border: 1px solid lightgrey;margin-right:415px; margin-bottom:30px;background-color:#f3f3f8;color:#141313;">
 		<form action="" method="post" class="text-center form-group">
 			<label>

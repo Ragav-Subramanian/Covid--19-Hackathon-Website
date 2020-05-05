@@ -6,7 +6,8 @@
 <?php include('uptomenu.php'); ?>
 
 	<div class="search form-group"  style="background-color: #7faf81;">
-		<h3 class="text-center" style="background-color:#4ADA75;color: #fff;padding: 5px;">Search result</h3>
+
+		<h3 class="text-center" style="background-color:#4ADA75;color: #fff;padding: 10px;">Search result</h3>
 		
 	</div>
 <!-- result -->

@@ -7,7 +7,7 @@
 <?php include('uptomenu.php'); ?>
 
 	<div class="dashboard" style="background-color:#fff;">
-		<h3 class="text-center" style="background-color:#4ADA75;color: #fff;padding: 5px;">My Appoinment</h3>
+	<br><br><br>	
 		
 		
 	</div>

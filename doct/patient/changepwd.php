@@ -10,7 +10,7 @@
 
 <!-- this is for donor registraton -->
 <div class="dashboard" style="background-color:#fff;">
-	<h3 class="text-center" style="background-color:#4ADA75;;color: #fff;padding: 5px;">Change Password</h3>
+	<br><br>
 	<div class="formstyle" style="float: right;padding:20px;border: 1px solid lightgrey;margin-right:415px; margin-bottom:30px;background-color:#f3f3f8;color:#141313;">
 		<form action="" method="post" class="text-center">
 			<label>
@@ -75,11 +75,6 @@
 
 
 </div>
-
-
-
-
-<?php include('../footer.php'); ?>
 
 
 
