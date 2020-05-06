@@ -5,16 +5,8 @@
     <title>Login form</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/home.css">
     <style>
-        html,
-        body {
-            display: flex;
-            justify-content: center;
-            height: 100%;
-            background: url(stayhome.jpeg);
-            background-size: cover;
-        }
-
         body,
         div,
         h1,
@@ -50,11 +42,10 @@
             max-width: 340px;
             min-height: 360px;
             padding: 10px 0;
-            margin: auto;
+            margin: 50px auto;
             border-radius: 5px;
             border: solid 1px #ccc;
             box-shadow: 1px 2px 5px rgba(0, 0, 0, .31);
-            background: #ebebeb;
         }
 
         form {
@@ -114,24 +105,21 @@
     </style>
 </head>
 
-<body>
+<body class="main-home">
     <div class="main-block">
         <h1>Login form</h1>
-        <form action="" method="post">
-
+        <form action="./includes/login.php" method="post">
             <hr>
-            <label id="icon" for="name"><i class="fas fa-user"></i></label>
-            <input type="text" name="name" id="name" placeholder="Username" required />
+            <label id="icon" for="username"><i class="fas fa-user"></i></label>
+            <input type="text" name="username" id="username" placeholder="Username" required />
             <label id="icon" for="name"><i class="fas fa-unlock-alt"></i></label>
-            <input type="password" name="password" id="name" placeholder="Password" required />
+            <input type="password" name="password" id="password" placeholder="Password" required />
             <hr>
             <div class="btn-block">
-                <button type="submit" name="submit">submit</button>
+                <button type="submit" name="login">submit</button>
             </div>
-            <span style="color:#0000FF;">Not a member yet?</span> <a href="register_temp.php" title="create a account" target="" style="color:#000;">&nbsp;Sign Up</a> <br>
+            <span style="color:#000;">Not a member yet?</span> <a href="register_temp.php" title="create a account" target="register_temp.php" style="color:#0000FF;" >&nbsp;Sign Up</a> <br>
         </form> <br>&nbsp;&nbsp;&nbsp;
     </div>
-
 </body>
-
 </html>

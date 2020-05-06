@@ -1,5 +1,5 @@
 CREATE TABLE `users` (
-  `username` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `pwd` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

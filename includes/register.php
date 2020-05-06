@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['signup']))
 {
-  require 'db.php';
+  require '../inputandstore/db.php';
   $name= $_POST['username'];
   $passwd= $_POST['password'];
   $rpasswd= $_POST['re-password'];
