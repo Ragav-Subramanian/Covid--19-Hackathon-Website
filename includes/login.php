@@ -1,4 +1,5 @@
 <?php
+ob_start();
 if(isset($_POST['login']))
 {
   require '../inputandstore/db.php';
