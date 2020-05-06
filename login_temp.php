@@ -11,8 +11,10 @@
             display: flex;
             justify-content: center;
             height: 100%;
+            background: url(stayhome.jpeg);
+            background-size: cover;
         }
-        
+
         body,
         div,
         h1,
@@ -26,7 +28,7 @@
             font-size: 16px;
             color: #666;
         }
-        
+
         h1 {
             padding: 10px 0;
             font-size: 32px;
@@ -34,16 +36,16 @@
             font-weight: 300;
             text-align: center;
         }
-        
+
         p {
             font-size: 12px;
         }
-        
+
         hr {
             color: #a9a9a9;
             opacity: 0.3;
         }
-        
+
         .main-block {
             max-width: 340px;
             min-height: 360px;
@@ -54,16 +56,16 @@
             box-shadow: 1px 2px 5px rgba(0, 0, 0, .31);
             background: #ebebeb;
         }
-        
+
         form {
             margin: 0 30px;
         }
-        
+
         label#icon {
             margin: 0;
             border-radius: 5px 0 0 5px;
         }
-        
+
         input[type=text],
         input[type=password] {
             width: calc(100% - 57px);
@@ -75,11 +77,11 @@
             box-shadow: 1px 2px 5px rgba(0, 0, 0, .09);
             background: #fff;
         }
-        
+
         input[type=password] {
             margin-bottom: 15px;
         }
-        
+
         #icon {
             display: inline-block;
             padding: 9.3px 15px;
@@ -88,12 +90,12 @@
             color: #fff;
             text-align: center;
         }
-        
+
         .btn-block {
             margin-top: 10px;
             text-align: center;
         }
-        
+
         button {
             width: 100%;
             padding: 10px 0;
@@ -105,7 +107,7 @@
             font-weight: 600;
             color: #fff;
         }
-        
+
         button:hover {
             background: #4ADA75;
         }
@@ -126,7 +128,7 @@
             <div class="btn-block">
                 <button type="submit" name="submit">submit</button>
             </div>
-            <span style="color:#0000FF;">Not a member yet?</span> <a href="register.html" title="create a account" target="" style="color:#000;">&nbsp;Sign Up</a> <br>
+            <span style="color:#0000FF;">Not a member yet?</span> <a href="register_temp.php" title="create a account" target="" style="color:#000;">&nbsp;Sign Up</a> <br>
         </form> <br>&nbsp;&nbsp;&nbsp;
     </div>
 
