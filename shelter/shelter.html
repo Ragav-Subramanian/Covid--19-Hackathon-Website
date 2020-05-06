@@ -139,6 +139,7 @@
 
         function showPosition(position) {
             var mapObj;
+            console.log("Your position:",position.coords.latitude,position.coords.longitude);
             var url = "./distance.php";
             var params = "latitude=" + position.coords.latitude + "&longitude=" + position.coords.longitude;
             var http = new XMLHttpRequest();
