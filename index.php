@@ -8,6 +8,6 @@
   }
   else
   {
-    require 'index.html'; 
+    require 'index1.html'; 
   }
 ?>
