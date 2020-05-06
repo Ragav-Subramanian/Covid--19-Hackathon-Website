@@ -97,7 +97,7 @@
 
 <body>
 
-    <div class="main-block">
+    <div class="main-block" id="find-button">
         <h1>Finding a nearest Labour Shelter</h1>
         <form action="details.php" method="post" target="_blank">
             <h2>Enter your Location and click the button below to find nearby shelters.</h2>
@@ -109,11 +109,13 @@
         </form>
     </div>
     <p id="demo"></p>
+    <div id="map-box"></div>
 
     <script>
         var x = document.getElementById("demo");
 
         function getLocation() {
+            console.log("locator");
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
             } else {
@@ -122,11 +124,24 @@
         }
 
         function showPosition(position) {
+            console.log("in");
             x.innerHTML = "Latitude: " + position.coords.latitude +
                 "<br>Longitude: " + position.coords.longitude;
+            var url = "./distance.php";
+            var params = "latitude="+ position.coords.latitude + "&longitude=" + position.coords.longitude;
+            var http = new XMLHttpRequest();
+            http.open("GET",  url+"?"+params, true);
+            http.onreadystatechange = function()
+            {
+                if(http.readyState == 4 && http.status == 200) {
+                    alert (JSON.stringify(JSON.parse(http.responseText)));
+                }
+            }
+            http.send();
         }
     </script>
 
 </body>
 
 </html>
+
