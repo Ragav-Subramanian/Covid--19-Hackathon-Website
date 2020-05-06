@@ -120,6 +120,6 @@
             </div>
             <span style="color:#000;">Not a member yet?</span> <a href="register_temp.php" title="create a account" target="register_temp.php" style="color:#0000FF;" >&nbsp;Sign Up</a> <br>
         </form> <br>&nbsp;&nbsp;&nbsp;
-    </div>
+    </div>s
 </body>
 </html>

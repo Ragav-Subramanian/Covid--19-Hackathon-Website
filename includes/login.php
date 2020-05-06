@@ -6,8 +6,7 @@ if(isset($_POST['login']))
   $passwd= $_POST['password'];
   if(empty($name) || empty($passwd))
     {
-      header("Location:../login_temp.php?error=lempty");
-      exit();
+      exit(header("Location:../login_temp.php?error=lempty"));      
     }
   else
   {
@@ -15,8 +14,7 @@ if(isset($_POST['login']))
   	$stmt=mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql))
     {
-     header("Location:../login_temp.php?error=ldberror");
-     exit();	
+     exit(header("Location:../login_temp.php?error=ldberror"));	
     }
     else
     {
@@ -32,26 +30,22 @@ if(isset($_POST['login']))
                session_start();
                $_SESSION['NAME']=$row['name'];
                $_SESSION['PWD']=$row['pwd'];
-               header("Location:../index.php?success=welcome");
-               exit();
+               exit(header("Location:../index.php?success=welcome"));
            }
          else
            {
-            	header("Location:../login_temp.php?error=lmismatch");
-                exit();
+            	exit(header("Location:../login_temp.php?error=lmismatch"));
            }     
         }
         else
         {
-       	header("Location:../login_temp.php?error=lnousr");
-        exit();
+       	 exit(header("Location:../login_temp.php?error=lnousr"));
         }
     }
   }
 }
 else
 {
-  header("Location:../index.php");
-  exit();
+  exit(header("Location:../index.php"));
 }
 ?>

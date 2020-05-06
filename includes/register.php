@@ -7,13 +7,11 @@ if(isset($_POST['signup']))
   $rpasswd= $_POST['re-password'];
   if(empty($name) || empty($passwd) || empty($rpasswd))
     {
-      header("Location:../register_temp.php?error=sempty");
-      exit();
+      exit(header("Location:../register_temp.php?error=sempty"));
     }
   else if($passwd !== $rpasswd)
     {
-    	header("Location:../register_temp.php?error=smismatch&sname=".$name);
-    	exit();
+    	exit(header("Location:../register_temp.php?error=smismatch&sname=".$name));
     }
    else
     {
@@ -21,8 +19,7 @@ if(isset($_POST['signup']))
       $stmt=mysqli_stmt_init($conn);
       if(!mysqli_stmt_prepare($stmt, $sql))
       {
-       header("Location:../register_temp.php?error=sdberror");
-    	exit();
+       exit(header("Location:../register_temp.php?error=sdberror"));
       }
       else
       {
@@ -32,8 +29,7 @@ if(isset($_POST['signup']))
       	$row=mysqli_stmt_num_rows($stmt);
       	if($row>0)
       	{
-        header("Location:../register_temp.php?error=susralrdy");
-    	exit();
+        exit(header("Location:../register_temp.php?error=susralrdy"));
       	}
       	else
       	{
@@ -41,13 +37,11 @@ if(isset($_POST['signup']))
       		$sql="INSERT INTO users (name, pwd) VALUES (?, ?)";
       		if(!mysqli_stmt_prepare($stmt, $sql))
       		{
-      		header("Location:../register_temp.php?error=sdberror");
-    	    exit();	
+      		exit(header("Location:../register_temp.php?error=sdberror"));
       		}
       		mysqli_stmt_bind_param($stmt, "ss", $name, $hashpasswd);
       	  mysqli_stmt_execute($stmt);
-      	  header("Location:../index.php?signup=successful");
-    	    exit();
+      	  exit(header("Location:../index.php?signup=successful"));
         }
       }
     }
@@ -56,7 +50,6 @@ if(isset($_POST['signup']))
 }
 else
 {
-  	header("Location:../index.php");
-    exit();
+  	exit(header("Location:../index.php"));
 }
 ?>
