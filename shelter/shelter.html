@@ -2,7 +2,6 @@
 <html>
 
 <head>
-    <title>LABOUR SHELTER MAPPING</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.js'></script>
@@ -93,16 +92,18 @@
         button:hover {
             background: rgb(45, 180, 85);
         }
-        #map{
+        
+        #map {
             height: 600px !important;
             width: 600px !important;
         }
+        
         .marker {
-          background-size: cover;
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-          cursor: pointer;
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
         }
     </style>
 
@@ -111,7 +112,6 @@
 <body>
     <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.0/mapbox-gl-directions.js'></script>
     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.0/mapbox-gl-directions.css' type='text/css' />
-        
 
     <div class="main-block" id="find-button">
         <h1>Finding a nearest Labour Shelter</h1>
@@ -133,38 +133,36 @@
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
             } else {
-               alert("Geolocation is not supported by this browser");
+                alert("Geolocation is not supported by this browser");
             }
         }
 
         function showPosition(position) {
             var mapObj;
             var url = "./distance.php";
-            var params = "latitude="+ position.coords.latitude + "&longitude=" + position.coords.longitude;
+            var params = "latitude=" + position.coords.latitude + "&longitude=" + position.coords.longitude;
             var http = new XMLHttpRequest();
-            http.open("GET",  url+"?"+params, false);
-            http.onreadystatechange = function()
-            {
-                if(http.readyState == 4 && http.status == 200) {
+            http.open("GET", url + "?" + params, false);
+            http.onreadystatechange = function() {
+                if (http.readyState == 4 && http.status == 200) {
                     mapObj = JSON.parse(http.responseText);
                 }
             }
             http.send();
             var geojson = {
                 'type': 'FeatureCollection',
-                'features': [
-                    {
+                'features': [{
                     'type': 'Feature',
                     'properties': {
-                    'message': 'Shelter',
-                    'iconSize': [40, 40]
+                        'message': 'Shelter',
+                        'iconSize': [40, 40]
                     },
                     'geometry': {
-                    'type': 'Point',
-                    'coordinates': [mapObj.minlongitude, mapObj.minlatitude]
+                        'type': 'Point',
+                        'coordinates': [mapObj.minlongitude, mapObj.minlatitude]
                     }
                 }]
-                };
+            };
             mapboxgl.accessToken = 'pk.eyJ1Ijoibml0aGluMTk5OSIsImEiOiJjanlhYmoxd3gwMDZjM2xvNTFneG96aDJoIn0.xVdlEuwoEz6VPUMKNFe70A';
             var map = new mapboxgl.Map({
                 container: 'map',
@@ -180,35 +178,35 @@
                 positionOptions: {
                     enableHighAccuracy: true
                 },
-                 trackUserLocation: true
+                trackUserLocation: true
             }));
 
             geojson.features.forEach(function(marker) {
-            // create a DOM element for the marker
-            var el = document.createElement('div');
-            el.className = 'marker';
-            el.style.backgroundImage =
-            'url(https://placekitten.com/g/' +
-            marker.properties.iconSize.join('/') +
-            '/)';
-            el.style.width = marker.properties.iconSize[0] + 'px';
-            el.style.height = marker.properties.iconSize[1] + 'px';
-             
-            el.addEventListener('click', function() {
-            window.alert(marker.properties.message);
-            });
-             
-            // add marker to map
-            new mapboxgl.Marker(el)
-            .setLngLat(marker.geometry.coordinates)
-            .addTo(map);
+                // create a DOM element for the marker
+                var el = document.createElement('div');
+                el.className = 'marker';
+                el.style.backgroundImage =
+                    'url(https://placekitten.com/g/' +
+                    marker.properties.iconSize.join('/') +
+                    '/)';
+                el.style.width = marker.properties.iconSize[0] + 'px';
+                el.style.height = marker.properties.iconSize[1] + 'px';
+
+                el.addEventListener('click', function() {
+                    window.alert(marker.properties.message);
+                });
+
+                // add marker to map
+                new mapboxgl.Marker(el)
+                    .setLngLat(marker.geometry.coordinates)
+                    .addTo(map);
             });
 
             document.getElementById("find-button").style.display = "none";
         }
     </script>
 
+
 </body>
 
 </html>
-
