@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LABOUR SHELTER MAPPING</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <style>
+        html,
+        body {
+            display: flex;
+            justify-content: center;
+            height: 100%;
+        }
+        
+        body,
+        div,
+        h1,
+        form,
+        input,
+        p {
+            padding: 0;
+            margin: 0;
+            outline: none;
+            font-family: Roboto, Arial, sans-serif;
+            font-size: 16px;
+            color: #666;
+        }
+        
+        h1 {
+            padding: 10px 0;
+            font-size: 32px;
+            font-weight: 300;
+            text-align: center;
+        }
+        
+        p {
+            font-size: 12px;
+        }
+        
+        form {
+            margin: 0 30px;
+        }
+        
+        .btn-block {
+            margin-top: 10px;
+            text-align: center;
+        }
+        
+        #icon {
+            display: inline-block;
+            padding: 9.3px 15px;
+            box-shadow: 1px 2px 5px rgba(0, 0, 0, .09);
+            background: #4ADA75;
+            color: #fff;
+            text-align: center;
+        }
+        
+        input[type=text],
+        input[type=password] {
+            width: calc(100% - 57px);
+            height: 36px;
+            margin: 13px 0 0 -5px;
+            padding-left: 10px;
+            border-radius: 0 5px 5px 0;
+            border: solid 1px #cbc9c9;
+            box-shadow: 1px 2px 5px rgba(0, 0, 0, .09);
+            background: #fff;
+        }
+        
+        button {
+            width: 60%;
+            padding: 10px 0;
+            margin: 10px auto;
+            border-radius: 5px;
+            border: none;
+            background: #4ADA75;
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        textarea {
+            resize: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-family: Roboto, Arial, sans-serif;
+            font-size: 15px;
+        }
+        
+        button:hover {
+            background: rgb(45, 180, 85);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="main-block">
+        <h1>Finding a nearest Labour Shelter</h1>
+        <form action="details.php" method="post" target="_blank">
+            <h2>Enter your Location and click the button below to find nearby shelters.</h2>
+            <label id="icon" for="name"><i class="fas fa-location-arrow"></i></label>
+            <input type="text" name="loc" id="name" placeholder="CURRENT LOCATION" required/>
+            <div class="btn-block">
+                <button type="button" name="Submit" class="btn btn-success btn-sm" onclick="getLocation()">Nearest Shelter</button>
+            </div>
+        </form>
+    </div>
+    <p id="demo"></p>
+
+    <script>
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+        }
+    </script>
+
+</body>
+
+</html>
