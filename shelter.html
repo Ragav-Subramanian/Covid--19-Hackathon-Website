@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/home.css">
+    <style>            
+        #map {
+            height: 600px !important;
+            width: 600px !important;
+            margin: auto auto;
+        }
+        
+        .marker {
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        h1, h2{
+            margin: auto auto;
+        }
+        #shelter-button{
+            margin-top: 30px;
+        }
+        .btn-sm{
+            width: 40%;
+        }
+        #map-marker{
+            visibility: hidden;
+        }
+    </style>
+
+</head>
+
+<body>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.0/mapbox-gl-directions.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.0/mapbox-gl-directions.css' type='text/css' />
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+        <a class="navbar-brand" href="#">LOGO</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Complaints</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tel: 104">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12 col-sm-12">
+             <div id="shelter-button">
+                <h1>Finding the nearest  Shelter</h1>
+                <form action="details.php" method="post" target="_blank">
+                    <h2>Click the button below to find nearby shelters.</h2>
+                    <div class="btn-block">
+                        <button type="button" name="Submit" class="btn btn-success btn-sm" onclick="getLocation()">Nearest Shelter</button>
+                    </div>
+                </form>
+             </div>
+             <i class="fas fa-2x fa-map-marker-alt" style="color:#4ADA75;" id="map-marker"></i>
+            <div id='map'></div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script>
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+            console.log("locator");
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("Geolocation is not supported by this browser");
+            }
+        }
+
+        function showPosition(position) {
+            var mapObj;
+            console.log("Your position:",position.coords.latitude,position.coords.longitude);
+            var url = "../phpfiles/distance.php";
+            var params = "latitude=" + position.coords.latitude + "&longitude=" + position.coords.longitude;
+            var http = new XMLHttpRequest();
+            http.open("GET", url + "?" + params, false);
+            http.onreadystatechange = function() {
+                if (http.readyState == 4 && http.status == 200) {
+                    mapObj = JSON.parse(http.responseText);
+                }
+            }
+            http.send();
+            var geojson = {
+                'type': 'FeatureCollection',
+                'features': [{
+                    'type': 'Feature',
+                    'properties': {
+                        'message': 'Shelter',
+                        'iconSize': [40, 40]
+                    },
+                    'geometry': {
+                        'type': 'Point',
+                        'coordinates': [mapObj.minlongitude, mapObj.minlatitude]
+                    }
+                }]
+            };
+            mapboxgl.accessToken = 'pk.eyJ1Ijoibml0aGluMTk5OSIsImEiOiJjanlhYmoxd3gwMDZjM2xvNTFneG96aDJoIn0.xVdlEuwoEz6VPUMKNFe70A';
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v11',
+                center: [mapObj.minlongitude, mapObj.minlatitude],
+                zoom: 10
+            });
+            map.addControl(new MapboxDirections({
+                accessToken: mapboxgl.accessToken
+            }), 'top-left');
+            map.addControl(new mapboxgl.GeolocateControl({
+                zoom: 15,
+                positionOptions: {
+                    enableHighAccuracy: true
+                },
+                trackUserLocation: true
+            }));
+
+            geojson.features.forEach(function(marker) {
+                // create a DOM element for the marker
+                var el = document.getElementById('map-marker');
+                
+                el.style.backgroundImage = marker.properties.iconSize.join('/') + '/)';
+                el.style.width = marker.properties.iconSize[0] + 'px';
+                el.style.height = marker.properties.iconSize[1] + 'px';
+
+                el.addEventListener('click', function() {
+                    window.alert(marker.properties.message);
+                });
+                el.style.visibility = "visible";
+                // add marker to map
+                new mapboxgl.Marker(el)
+                    .setLngLat(marker.geometry.coordinates)
+                    .addTo(map);
+            });
+
+            document.getElementById("shelter-button").style.display = "none";
+        }
+    </script>
+     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+     <script src="../js/home.js"></script>
+
+
+</body>
+
+</html>

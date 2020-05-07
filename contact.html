@@ -29,7 +29,7 @@
         
         h1 {
             padding: 10px 0;
-            font-size: 25px;
+            font-size: 32px;
             font-weight: 300;
             text-align: center;
         }
@@ -44,14 +44,14 @@
         }
         
         .main-block {
-            max-width: 500px;
-            min-height: 600px;
-            padding: 10px 5;
+            max-width: 340px;
+            min-height: 460px;
+            padding: 10px 0;
             margin: auto;
-            border-radius: 10px;
+            border-radius: 5px;
             border: solid 1px #ccc;
             box-shadow: 1px 2px 5px rgba(0, 0, 0, .31);
-            background: #ebebeb;
+            background: #50C878;
         }
         
         form {
@@ -89,8 +89,8 @@
             left: 0;
             width: 20px;
             height: 20px;
-            border-radius: 50%;
-            background: #4ADA75;
+            border-radius: 50;
+            background: #0B6623;
         }
         
         label.radio:after {
@@ -118,7 +118,7 @@
             margin: 13px 0 0 -5px;
             padding-left: 10px;
             border-radius: 0 5px 5px 0;
-            border: solid 1px #cbc9c9;
+            border: solid 1px #0000EEE;
             box-shadow: 1px 2px 5px rgba(0, 0, 0, .09);
             background: #fff;
         }
@@ -126,15 +126,7 @@
         input[type=password] {
             margin-bottom: 15px;
         }
-        
-        #icon {
-            display: inline-block;
-            padding: 9.3px 15px;
-            box-shadow: 1px 2px 5px rgba(0, 0, 0, .09);
-            background: #4ADA75;
-            color: #fff;
-            text-align: center;
-        }
+       
         
         .btn-block {
             margin-top: 10px;
@@ -142,61 +134,40 @@
         }
         
         button {
-            width: 60%;
+            width: 100%;
             padding: 10px 0;
             margin: 10px auto;
             border-radius: 5px;
             border: none;
-            background: #4ADA75;
+            background: #1c87c9;
             font-size: 14px;
             font-weight: 600;
-            color: #fff;
+            color: #0000EEE;
         }
         
         button:hover {
-            background: #26a9e0;
-        }
-        textarea {
-          resize: none;     
-          border-radius: 5px;
-          margin-top: 20px;
-          font-family: Roboto, Arial, sans-serif;
-            font-size: 15px;
+            background:#0000EEE;
         }
     </style>
 </head>
 
 <body>
     <div class="main-block">
-        <h1>Personal Pass Application </h1>
-        <form action="../phpfiles/personalpasscreate.php" method="post" target="_blank">
-
-
-            <label id="icon" for="name"><i class="fas fa-user"></i></label>
-            <input type="text" name="name" id="name" placeholder="Name" required/>
-            <label id="icon" for="name"><i class="fas fa-calendar"></i></label>
-            <input type="text" name="age" id="name" placeholder="Age" required/>
-            <label id="icon" for="name"><i class="fas fa-phone"></i></label>
-            <input type="text" name="phoneno" id="name" placeholder="Phone no" required/>
-            <label id="icon" for="name"><i class="fas fa-book"></i></label>
-            <input type="text" name="aadhar no" id="name" placeholder="Aadhar No" required/>
-            <label id="icon" for="name"><i class="fas fa-car"></i></label>
-            <input type="text" name="email" id="name" placeholder="Vehicle No" required/>
-            <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
-            <input type="text" name="email" id="name" placeholder="Email" required/>
-           <!-- <label id="icon" for="name"><i class="fas fa-pen"></i></label>
-            <input type="text" name="email" id="name" placeholder="Type of trip" required/>-->
-            <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
-            <input type="text" name="vnum" id="name" placeholder="Address" required/>
-            <label id="icon" for="name"><i class="fas fa-tree"></i></label>
-            <input type="text" name="vnum" id="name" placeholder="Area of travel" required/>
-            <br><br>
-
-            <label id="icon" for="name"><i class="fas fa-calendar"></i> starting date</label>
-            <input type="date" name="nofdays" id="name" placeholder="starting date" required/><br><br>
-            <label id="icon" for="name"><i class="fas fa-calendar"> </i>     ending date    </label>
-            <input type="date" name="nofdays" id="name" placeholder="ending date" required/>
+        <h1> COMPLAINTS</h1>
+        <form action="../phpfiles/simple.php" method="post" target="_blank">
+            
             <hr>
+			<label  for="name"></label>
+            <input type="text" name="name" id="name" placeholder="Name" required/>
+            <label  for="name"></label>
+            <input type="text" name="email" id="name" placeholder="Email" required
+            <label  for="name"></label><br><br>
+            <form action="/action_page.php">
+			<label for="name"></label>
+			<input type="number" name="mobileno" id="name" placeholder="mobile no" required/><br><br>
+        <label for="name"></label><textarea id="name" name="query" placeholder="Ask your health queries..." style="height:150px"></textarea>
+		
+		
             <div class="gender">
                 <input type="radio" value="none" id="male" name="gender" checked/>
                 <label for="male" class="radio">Male</label>
@@ -204,22 +175,11 @@
                 <label for="female" class="radio">Female</label>
             </div>
             <hr>
-            <div class="account-type">
-                <h2>REASON:</h2>
-                <input type="radio" value="none" id="radioOne" name="account" checked/>
-                <label for="radioOne" class="radio">Personal</label>
-                <input type="radio" value="none" id="radioTwo" name="account" />
-                <label for="radioTwo" class="radio">Company</label>
-                <input type="radio" value="none" id="radioThree" name="account" />
-                <label for="radioThree" class="radio">Others</label>
-                <textarea name="reason" id="name" placeholder="Mention the Reason" cols="50" rows="5" class="text-area1" required></textarea>
-            </div>
             <div class="btn-block">
-                    <button type="submit" name="Submit" class="btn btn-success btn-sm" >Submit</button>
+               <input type="submit" name="Submit"  value="Submit">
             </div>
         </form>
     </div>
-    <script>$('textarea').autoResize();</script>
 </body>
 
 </html>

@@ -1,13 +1,17 @@
 <?php
-ob_start();
+function callback($buffer) {
+  return (ereg_replace("apples", "oranges", $buffer));
+}
+ob_start("callback");
 if(isset($_POST['login']))
 {
-  require '../inputandstore/db.php';
+  require '../phpfiles/db.php';
   $name= $_POST['username'];
   $passwd= $_POST['password'];
   if(empty($name) || empty($passwd))
     {
-      exit(header("Location:../login_temp.php?error=lempty"));      
+      header("Location:../phpfiles/login_temp.php?error=lempty");
+      exit();
     }
   else
   {
@@ -15,7 +19,8 @@ if(isset($_POST['login']))
   	$stmt=mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql))
     {
-     exit(header("Location:../login_temp.php?error=ldberror"));	
+     header("Location:../phpfiles/login_temp.php?error=ldberror");
+     exit();	
     }
     else
     {
@@ -31,22 +36,27 @@ if(isset($_POST['login']))
                session_start();
                $_SESSION['NAME']=$row['name'];
                $_SESSION['PWD']=$row['pwd'];
-               exit(header("Location:../index.php?success=welcome"));
+               header("Location:../phpfiles/index.php?success=welcome");
+               exit();
            }
          else
            {
-            	exit(header("Location:../login_temp.php?error=lmismatch"));
+            	header("Location:../phpfiles/login_temp.php?error=lmismatch");
+                exit();
            }     
         }
         else
         {
-       	 exit(header("Location:../login_temp.php?error=lnousr"));
+       	header("Location:../phpfiles/login_temp.php?error=lnousr");
+        exit();
         }
     }
   }
 }
 else
 {
-  exit(header("Location:../index.php"));
+  header("Location:../phpfiles/index.php");
+  exit();
 }
+ob_end_flush();
 ?>

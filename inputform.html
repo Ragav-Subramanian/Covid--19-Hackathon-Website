@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+    <title>Transport pass</title>
+    <form class="reg-form" action="../phpfiles/store.php" method="post">
+        <h1>PATIENT RECORD</h1>
+        <p class="helper-text">* denotes a required field</p>
+        <div class="field-row">
+            <label class="form-label" for="id">case no</label>
+            <input type="number" name="id" class="field text-field veh-field" placeholder="patient ID" required>
+            <span class="message"></span>
+        </div>
+        <div class="field-row">
+            <label class="form-label" for="patientname"> patient's name</label>
+            <input type="text"  name="patientname" class="field text-field first-name-field" placeholder="patientname"
+                required>
+            <span class="message"></span>
+        </div>
+        <div class="field-row">
+            <label class="form-label">Gender</label>
+            <select class="field form-dropdown" name="sex">
+                <option name="gender" value="M">Male</option>
+                <option name="gender" value="F">Female</option>
+                <option name="gender"  value="T">Others</option>
+            </select>
+        </div>
+        <div class="field-row">
+            <label class="form-label" for="age">Age</label>
+            <input type="number" name="age" class="field text-field ag-field" placeholder="age" required>
+            <span class="message"></span>
+        </div>
+        <div class="field-row">
+            <label class="form-label" for="adt">admission date</label>
+            <input type="date" name="adt" class="field date-field dt-field" required>
+            <span class="message"></span>
+            <div class="item-content">
+
+                <div class="field-row">
+                    <label class="form-label" for="btemp">body temprature</label>
+                    <input type="number" name="btemp" class="field text-field ag-field" placeholder="in celsius" required>
+                    <span class="message"></span>
+                </div>
+                <div class="field-row">
+                    <label class="form-label" for="bsl">blood sugar level</label>
+                    <input type="number" name="bsl" class="field text-field ag-field" placeholder="mg/dl" required>
+                    <span class="message"></span>
+                </div>
+
+                <div class="field-row">
+                    <label class="form-label cf" for="purpose">Reason for admission</label>
+                    <input type="text" id="purpose" class="field text-field purpose-field" placeholder="Specify"
+                        required>
+                    <span class="message"></span>
+                </div>
+                <div>
+                    <div class="field-row">
+                        <label class="form-label">disease diagnosed</label>
+                        <select name="diagnised" class="field text-field travel-field" required>
+                            <option selected hidden value="">SELECT</option>
+                            <option value=977>corona</option>
+                            <option value=978>flu</option>
+                            <option value=979>respiratory disease</option>
+                            <option value=973>viral fever</option>
+                            <option value=972>cold</option>
+                            <option value=974>others</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="field-row">
+                    <label class="form-label" for="oill">other illnes </label>
+                    <input type="text" name="oill" class="field text-field travel-field" placeholder="(if any)" required>
+                    <span class="message"></span>
+                </div>
+                <div class="field-row">
+                    <label class="form-label">test undergone</label><br>
+                    <input type="checkbox" id="test6" name="test6" value="rapid" align="center">
+                    <label for="vehicle3" class="field text-field travel-field" align="center">swab test</label><br>
+                    <input type="checkbox" id="test1" name="test1" value="nasal" align="center">
+                    <label for="vehicle3" class="field text-field travel-field" align="center"> nasal aspirate
+                        test</label><br>
+                    <input type="checkbox" id="test2" name="test2" value="tracheal">
+                    <label for="vehicle2" class="field text-field travel-field" align="center"> tracheal
+                        test</label><br>
+                    <input type="checkbox" id="test33" name="test3" value="sputum" align="center">
+                    <label for="vehicle3" class="field text-field travel-field" align="center"> sputum test</label><br>
+                    <input type="checkbox" id="test4" name="test4" value="blood" align="center">
+                    <label for="vehicle3" class="field text-field travel-field" align="center"> blood test</label><br>
+                    <input type="checkbox" id="test5" name="test5" value="rapid" align="center">
+                    <label for="vehicle3" class="field text-field travel-field" align="center">rapid test</label><br>
+
+                </div>
+
+                <div class="field-row">
+                    <label class="form-label"></label>
+                    <button class="form-button">store</button>
+                </div>
+    </form>
+
+    <style>
+        p {
+            color: #DC143C;
+            font-size: 25px;
+        }
+
+        .reg-form {
+            box-sizing: border-box;
+            box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.4);
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 15px auto;
+            padding: 60px 40px 50px 40px;
+            background: #ffff;
+            border-radius: 10px;
+            padding: 15px;
+            width: 550px;
+        }
+
+        .form-heading {
+            padding: 10px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .helper-text {
+            font-size: 12px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .field-row {
+            padding: 10px 60px 20px 10px;
+        }
+
+        .form-label {
+            display: inline-block;
+            font-size: 16px;
+            font: bold;
+            margin: 5px 5px 5px 0;
+            text-align: left;
+            width: 120px;
+        }
+
+        h1 {
+            margin: 0 0 30px 0;
+            text-align: center;
+            color: #3CB371;
+        }
+
+        .field {
+            display: inline-block;
+            font-size: 16px;
+            font: bold;
+            padding: 10px;
+            margin-bottom: 15px;
+            width: 200px;
+            padding: 10px 10px 5px 5px;
+            background: #DCDCDC;
+            border-radius: 5px;
+        }
+
+        .field.field-short {
+            width: 20px;
+        }
+
+        .message {
+            display: inline-block;
+        }
+
+        :required+.message::before {
+            content: "* ";
+        }
+
+        .text-field:focus:required:valid {
+            outline: green 2px;
+            border-radius: 10px;
+            border-color: green;
+        }
+
+        .text-field:focus:required:invalid {
+            border-radius: 5px;
+            outline: red 2px;
+            border-color: red;
+        }
+
+        .date-field:focus:in-range {
+            outline: green 2px;
+            border-radius: 10px;
+            border-color: green;
+        }
+
+        .date-field:focus:out-of-range {
+            outline: red 2px;
+            border-radius: 10px;
+            border-color: red;
+        }
+
+        .website-field:focus:valid {
+            outline: green 2px;
+            border-radius: 10px;
+            border-color: green;
+        }
+
+        .website-field:focus:invalid {
+            outline: red 2px;
+            border-radius: 10px;
+            border-color: red;
+        }
+
+        .form-button {
+            background: linear-gradient(180deg, #808080, #2a2a2a);
+            border: none;
+            border-radius: 0;
+            color: white;
+            display: inline-block;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .first-name-field:focus:invalid+.message::after {
+            color: red;
+            content: "Required your  name";
+        }
+
+        .purpose-field:focus:invalid+.message::after {
+            color: red;
+            content: "Required whats the purpose";
+        }
+
+        .dt-field:focus:out-of-range+.message::after {
+            color: red;
+            content: "Date is out of range";
+        }
+
+        .tel-field:focus:invalid+.message::after {
+            color: red;
+            content: "Required telephone number";
+        }
+
+        .email-field:focus:invalid+.message::after {
+            color: red;
+            content: "Required email address";
+        }
+
+        .ag-field:focus:invalid+.message::after {
+            color: red;
+            content: "Required present age";
+        }
+
+        .address-field:focus:invalid+.message::after {
+            color: red;
+            content: "Required permanent address";
+        }
+
+        .aadhar-field:focus:invalid+.message::after {
+            color: red;
+            content: "Required AadharID";
+        }
+
+        .veh-field:focus:invalid+.message::after {
+            color: red;
+            content: "Required Vehicle no";
+        }
+
+        .travel-field:focus:invalid+.message::after {
+            color: red;
+            content: "Required Travelling area";
+        }
+
+        .noof-field:focus:invalid+.message::after {
+            color: red;
+            content: "Required no of days";
+        }
+
+        @media screen and (min-width: 480px) {
+            form {
+                max-width: 480px;
+            }
+        }
+
+    </style>
+
+</html>

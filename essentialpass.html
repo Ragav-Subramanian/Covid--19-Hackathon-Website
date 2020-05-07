@@ -43,7 +43,18 @@
             opacity: 0.3;
         }
         
-        m form {
+        .main-block {
+            max-width: 500px;
+            min-height: 600px;
+            padding: 10px 0;
+            margin: auto;
+            border-radius: 5px;
+            border: solid 1px #ccc;
+            box-shadow: 1px 2px 5px rgba(0, 0, 0, .31);
+            background: #ebebeb;
+        }
+        
+        form {
             margin: 0 30px;
         }
         
@@ -145,13 +156,12 @@
         button:hover {
             background: rgb(45, 180, 85);
         }
-        
         textarea {
-            resize: none;
-            border-radius: 5px;
-            margin-top: 20px;
-            font-family: Roboto, Arial, sans-serif;
-            font-size: 15px;
+          resize: none;
+          border-radius: 5px;
+          margin-top: 20px;
+          font-family: Roboto, Arial, sans-serif;
+            font-size:15px;
         }
     </style>
 </head>
@@ -159,14 +169,14 @@
 <body>
     <div class="main-block">
         <h1>Essential Service Transport Registration</h1>
-        <form action="details.php" method="post" target="_blank">
+        <form action="../phpfiles/essentialpasscreate.php" method="post">
 
             <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
             <input type="text" name="email" id="name" placeholder="Email" required/>
             <label id="icon" for="name"><i class="fas fa-user"></i></label>
             <input type="text" name="name" id="name" placeholder="Name" required/>
-            <!--<label id="icon" for="name"><i class="fas fa-unlock-alt"></i></label>
-            <input type="password" name="password" id="name" placeholder="Password" required/>-->
+            <label id="icon" for="name"><i class="fas fa-unlock-alt"></i></label>
+            <input type="text" name="aadhar" id="name" placeholder="Aadhar Number" required/>
             <label id="icon" for="name"><i class="fas fa-car"></i></label>
             <input type="text" name="vnum" id="name" placeholder="Vehicle number" required/>
             <label id="icon" for="name"><i class="fas fa-pen"></i></label>
@@ -191,15 +201,13 @@
             <label for="radioTwo" class="radio">Company</label>
             <input type="radio" value="none" id="radioThree" name="account" />
             <label for="radioThree" class="radio">Others</label>
-            <textarea name="reason" id="name" placeholder="Mention the Reason" cols="60" rows="5" class="text-area1" required></textarea>
+            <textarea name="reason" id="name" placeholder="Mention the Reason" cols="50" rows="5" class="text-area1" required></textarea>
             <div class="btn-block">
-                <button type="button" name="Submit" class="btn btn-success btn-sm">Submit</button>
+                <button type="submit" name="Submit" class="btn btn-success btn-sm" >Submit</button>
             </div>
         </form>
     </div>
-    <script>
-        $('textarea').autoResize();
-    </script>
+    <script>$('textarea').autoResize();</script>
 </body>
 
 </html>
