@@ -287,3 +287,29 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+CREATE TABLE
+IF NOT EXISTS `essential`
+(
+  `email` varchar
+(22) NOT NULL,
+  `name` varchar
+(22) NOT NULL,
+  `aadhar` int
+(22) NOT NULL,
+  `vnum` int
+(14) NOT NULL,
+  `trip`varchar
+(22) NOT NULL,
+  `start` int
+(22) date,
+   `
+end` data,
+  `gender` varchar
+(111) NOT NULL,
+  `account` varchar
+(22) NOT NULL,
+  `reason` varchar
+(22) NOT NULL,
+  PRIMARY KEY
+(`email`)
+)
