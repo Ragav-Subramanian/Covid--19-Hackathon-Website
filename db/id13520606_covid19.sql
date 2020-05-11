@@ -296,7 +296,7 @@ IF NOT EXISTS `essential`
 (22) NOT NULL,
   `aadhar` int
 (22) NOT NULL,
-  `vnum` int
+  `vnum` varchar
 (14) NOT NULL,
   `trip`varchar
 (22) NOT NULL,
