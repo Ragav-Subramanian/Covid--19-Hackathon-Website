@@ -303,7 +303,7 @@ IF NOT EXISTS `essential`
   `start`date,
   `end` data,
   `gender` varchar
-(111) NOT NULL,
+(22) NOT NULL,
   `account` varchar
 (22) NOT NULL,
   `reason` varchar
