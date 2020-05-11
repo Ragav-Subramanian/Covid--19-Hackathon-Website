@@ -300,10 +300,8 @@ IF NOT EXISTS `essential`
 (14) NOT NULL,
   `trip`varchar
 (22) NOT NULL,
-  `start` int
-(22) date,
-   `
-end` data,
+  `start`date,
+  `end` data,
   `gender` varchar
 (111) NOT NULL,
   `account` varchar
