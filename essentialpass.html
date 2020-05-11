@@ -156,12 +156,13 @@
         button:hover {
             background: rgb(45, 180, 85);
         }
+        
         textarea {
-          resize: none;
-          border-radius: 5px;
-          margin-top: 20px;
-          font-family: Roboto, Arial, sans-serif;
-            font-size:15px;
+            resize: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-family: Roboto, Arial, sans-serif;
+            font-size: 15px;
         }
     </style>
 </head>
@@ -180,12 +181,12 @@
             <label id="icon" for="name"><i class="fas fa-car"></i></label>
             <input type="text" name="vnum" id="name" placeholder="Vehicle number" required/>
             <label id="icon" for="name"><i class="fas fa-pen"></i></label>
-            <input type="text" name="email" id="name" placeholder="Type of trip" required/>
+            <input type="text" name="trip" id="name" placeholder="Type of trip" required/>
             <br><br>
             <label id="icon" for="name"><i class="fas fa-calendar"></i> starting date</label>
-            <input type="date" name="nofdays" id="name" placeholder="starting date" required/><br><br>
+            <input type="date" name="start" id="name" placeholder="starting date" required/><br><br>
             <label id="icon" for="name"><i class="fas fa-calendar"> </i>     ending date    </label>
-            <input type="date" name="nofdays" id="name" placeholder="ending date" required/>
+            <input type="date" name="end" id="name" placeholder="ending date" required/>
             <hr>
             <div class="gender">
                 <input type="radio" value="none" id="male" name="gender" checked/>
@@ -203,11 +204,13 @@
             <label for="radioThree" class="radio">Others</label>
             <textarea name="reason" id="name" placeholder="Mention the Reason" cols="50" rows="5" class="text-area1" required></textarea>
             <div class="btn-block">
-                <button type="submit" name="Submit" class="btn btn-success btn-sm" >Submit</button>
+                <button type="submit" name="Submit" class="btn btn-success btn-sm">Submit</button>
             </div>
         </form>
     </div>
-    <script>$('textarea').autoResize();</script>
+    <script>
+        $('textarea').autoResize();
+    </script>
 </body>
 
 </html>
