@@ -7,7 +7,7 @@
 			if ($result->num_rows > 0) {
 				echo "<script>alert('Sorry, user already exist!');</script>";
 			} else {
-				$sql = "INSERT INTO patient (email,name,aadhar,vnum,trip,start,end,gender,account,reason)
+				$sql = "INSERT INTO essential (email,name,aadhar,vnum,trip,start,end,gender,account,reason)
 							VALUES ('" . $_POST["email"] . "','" . $_POST["name"] . "','" . $_POST["aadhar"] . "','" . $_POST["vnum"] . "','" . $_POST["trip"] . "', '" . $_POST["start"] . "','" . $_POST["end"] . "','" . $_POST["gender"] . "','" . $_POST["account"] . "','" . $_POST["reason"] . "' )";
 
 				if ($conn->query($sql) === TRUE) {
