@@ -301,7 +301,7 @@ IF NOT EXISTS `essential`
   `trip`varchar
 (22) NOT NULL,
   `start`date,
-  `end` data,
+  `end` date,
   `gender` varchar
 (22) NOT NULL,
   `account` varchar
@@ -332,7 +332,7 @@ IF NOT EXISTS `personal`
   `trip`varchar
 (22) NOT NULL,
   `start`date,
-  `end` data,
+  `end` date,
   `gender` varchar
 (22) NOT NULL,
   `account` varchar
