@@ -156,11 +156,12 @@
         button:hover {
             background: #26a9e0;
         }
+        
         textarea {
-          resize: none;     
-          border-radius: 5px;
-          margin-top: 20px;
-          font-family: Roboto, Arial, sans-serif;
+            resize: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-family: Roboto, Arial, sans-serif;
             font-size: 15px;
         }
     </style>
@@ -179,23 +180,23 @@
             <label id="icon" for="name"><i class="fas fa-phone"></i></label>
             <input type="text" name="phoneno" id="name" placeholder="Phone no" required/>
             <label id="icon" for="name"><i class="fas fa-book"></i></label>
-            <input type="text" name="aadhar no" id="name" placeholder="Aadhar No" required/>
+            <input type="text" name="aadhar" id="name" placeholder="Aadhar No" required/>
             <label id="icon" for="name"><i class="fas fa-car"></i></label>
-            <input type="text" name="email" id="name" placeholder="Vehicle No" required/>
+            <input type="text" name="vnum" id="name" placeholder="Vehicle No" required/>
             <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
             <input type="text" name="email" id="name" placeholder="Email" required/>
-           <!-- <label id="icon" for="name"><i class="fas fa-pen"></i></label>
+            <!-- <label id="icon" for="name"><i class="fas fa-pen"></i></label>
             <input type="text" name="email" id="name" placeholder="Type of trip" required/>-->
             <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
-            <input type="text" name="vnum" id="name" placeholder="Address" required/>
+            <input type="text" name="address" id="name" placeholder="Address" required/>
             <label id="icon" for="name"><i class="fas fa-tree"></i></label>
-            <input type="text" name="vnum" id="name" placeholder="Area of travel" required/>
+            <input type="text" name="trip" id="name" placeholder="Area of travel" required/>
             <br><br>
 
             <label id="icon" for="name"><i class="fas fa-calendar"></i> starting date</label>
-            <input type="date" name="nofdays" id="name" placeholder="starting date" required/><br><br>
+            <input type="date" name="start" id="name" placeholder="starting date" required/><br><br>
             <label id="icon" for="name"><i class="fas fa-calendar"> </i>     ending date    </label>
-            <input type="date" name="nofdays" id="name" placeholder="ending date" required/>
+            <input type="date" name="end" id="name" placeholder="ending date" required/>
             <hr>
             <div class="gender">
                 <input type="radio" value="none" id="male" name="gender" checked/>
@@ -215,11 +216,13 @@
                 <textarea name="reason" id="name" placeholder="Mention the Reason" cols="50" rows="5" class="text-area1" required></textarea>
             </div>
             <div class="btn-block">
-                    <button type="submit" name="Submit" class="btn btn-success btn-sm" >Submit</button>
+                <button type="submit" name="Submit" class="btn btn-success btn-sm">Submit</button>
             </div>
         </form>
     </div>
-    <script>$('textarea').autoResize();</script>
+    <script>
+        $('textarea').autoResize();
+    </script>
 </body>
 
 </html>

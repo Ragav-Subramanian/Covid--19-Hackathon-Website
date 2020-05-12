@@ -311,3 +311,34 @@ IF NOT EXISTS `essential`
   PRIMARY KEY
 (`email`)
 )
+
+CREATE TABLE
+IF NOT EXISTS `personal`
+(
+  `name` varchar
+(22) NOT NULL,
+  `age` int
+(5) NOT NULL,
+  `phoneno` int
+(22) NOT NULL,
+`aadhar` int
+(22) NOT NULL,
+  `vnum` varchar
+(14) NOT NULL,
+`email` varchar
+(14) NOT NULL,
+`address` varchar
+(14) NOT NULL,
+  `trip`varchar
+(22) NOT NULL,
+  `start`date,
+  `end` data,
+  `gender` varchar
+(22) NOT NULL,
+  `account` varchar
+(22) NOT NULL,
+  `reason` varchar
+(22) NOT NULL,
+  PRIMARY KEY
+(`email`)
+)

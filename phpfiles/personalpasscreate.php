@@ -1,32 +1,21 @@
-<?php 
+<?php
+		include('../phpfiles/db.php');
+		if (isset($_POST['submit'])) {
 
-if($_SERVER['REQUEST_METHOD'] == 'POST')
-{
+			$sql1 = "SELECT * FROM personal WHERE email='" . $_POST["email"] . "' ";
+			$result = $conn->query($sql1);
+			if ($result->num_rows > 0) {
+				echo "<script>alert('Sorry, user already exist!');</script>";
+			} else {
+				$sql = "INSERT INTO personal (name,age,phoneno,aadhar,vnum,email,address,trip,start,end,gender,account,reason)
+							VALUES ('" . $_POST["name"] . "','" . $_POST["age"] . "','" . $_POST["phoneno"] . "','" . $_POST["aadhar"] . "','" . $_POST["vnum"] . "','" . $_POST["email"] . "','" . $_POST["address"] . "','" . $_POST["trip"] . "', '" . $_POST["start"] . "','" . $_POST["end"] . "','" . $_POST["gender"] . "','" . $_POST["account"] . "','" . $_POST["reason"] . "' )";
 
-    $inAccount = $_POST["account"];
-    $inReason =$_POST["reason"] ;
-    $inEmail = $_POST["email"];
-    $inName = $_POST["name"];
-    $inPassword = $_POST["password"];
-    $inVehicle_Number = $_POST["vnum"];
-    $inNo_Of_Days = $_POST["nofdays"];
-    $inGender = $_POST["gender"];
+				if ($conn->query($sql) === TRUE) {
+					echo "<script>alert('Registeration Successful');</script>";
+				} else {
+					echo "<script>alert('There was an Error')<script>" . $sql . "<br>" . $conn->error;
+				}
 
-    echo "Input given for Account : " . $inAccount;
-    echo "<br>";
-    echo "Input given for Reason : " . $inReason;
-    echo "<br>";
-    echo "Input given for Email : " . $inEmail;
-    echo "<br>";
-    echo "Input given for Name : " . $inName;
-    echo "<br>";
-    echo "Input given for Password : " . $inPassword;
-    echo "<br>";
-    echo "Input given for Vehicle Number : " . $inVehicle_Number;
-    echo "<br>";
-    echo "Input given for No of  Days : " . $inNo_Of_Days ;
-    echo "<br>";
-    echo "Input given for Gender : " . $inGender;
-}
-
-?>
+				$conn->close();
+			}
+		}
